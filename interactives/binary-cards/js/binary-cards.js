@@ -47,8 +47,12 @@ function createCards(settings) {
 	var range_color = parseInt(100 / digit_color);
 	var color = 50;
 	var t = (settings.DIGITS + settings.OFFSET) - 12;
-	var range_size =  17 / t ; 
-	var font_size = 7 ;
+	var u = .33654;
+	var y = 24 - ( t * u);
+	var font_size = y ;
+	var r = 24 - y;
+	var range_size =  r / t ; 
+	
     // Iterate through card values
     for (var digit = 0, r = 20, m = 0; digit < settings.DIGITS; digit++) {
 		if (value >= 4095){
@@ -84,7 +88,7 @@ function createCard(value, is_black, is_dot, is_value, color, font_size) {
 	}else{
 		if (is_dot == true){
 			if (is_value == true){
-				front.append($("<div style='width: 118px;height: 140px;background:rgb("+color+","+color+","+color+");'>"+ font_size +"</div>"));
+				front.append($("<div style='width: 118px;height: 140px;background:rgb("+color+","+color+","+color+");'>"+  +"</div>"));
 				front.append($("<div class='binary-card-number' style = 'font-size: "+ font_size +"px;'>" + createCardLabel(value) + "</div>"));
 			} else {
 				front.append($("<div style='width: 118px;height: 140px;background:rgb("+color+","+color+","+color+");'>"+  +"</div>"));
